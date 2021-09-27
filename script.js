@@ -9,7 +9,7 @@ var confirmSpecial;
 var userChoices;
 
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-// Var To Upper Case ------------
+// Var To Upper Case ---
 var blankUpper = [];
 var toUpper = function (x) {
   return x.toUpperCase();
@@ -28,7 +28,7 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+//event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
 // Start Function
@@ -56,7 +56,7 @@ function generatePassword() {
 
   };
 
-  // No answer then
+  // No answer 
   if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
     userChoices = alert("You must choose a criteria");
   // 4 true 
