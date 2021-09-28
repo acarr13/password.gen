@@ -36,15 +36,16 @@ function generatePassword() {
   // Ask for user Input
   passwordLength = prompt("How many characters would you like your password? Choose between 8 and 128");
   console.log("Password length " + passwordLength);
-  
-  if(!passwordLength) {
+  console.log(parseInt(passwordLength))
+  if (!passwordLength) {
     alert("Required value");
 
-  } else if (passwordLength < 8 || passwordLength > 128) {
-    passwordLength = prompt("You must choose between 8 and 128");
+  } else if (passwordLength < 8 || passwordLength > 128 || isNaN(passwordLength)){
+    alert("You must choose a number between 8 and 128");
     console.log("Password length " + passwordLength);
-  
-  } else { 
+    generatePassword();
+    return;
+  } else {
     confirmLower = confirm("Will this contain lower case letters?");
     console.log("Lower case " + confirmLower);
     confirmUpper = confirm("Will this contain upper case letters?");
@@ -59,7 +60,9 @@ function generatePassword() {
   // No answer 
   if (!confirmLower && !confirmUpper && !confirmNumber && !confirmSpecial) {
     userChoices = alert("You must choose a criteria");
-  // 4 true 
+    generatePassword();
+    return;
+    // 4 true 
   } else if (confirmLower && confirmUpper && confirmNumber && confirmSpecial) {
     userChoices = lowerCase.concat(upperCase, numbers, special);
     console.log(userChoices);
@@ -126,7 +129,7 @@ function generatePassword() {
 
   // Empty variable for password lenght
   var passwordBlank = [];
-  
+
   // Loop for random selection
   for (var i = 0; i < passwordLength; i++) {
     var allChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
@@ -138,6 +141,6 @@ function generatePassword() {
   var password = passwordBlank.join("");
   console.log("Your Pasword is: " + password);
   return password;
-  
+
 }
 
